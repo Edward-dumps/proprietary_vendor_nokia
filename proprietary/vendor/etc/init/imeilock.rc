@@ -1,0 +1,10 @@
+service imeilock /vendor/bin/readimeilock_writenv
+    class late_start
+    user root
+    group root system radio diag oem_2901
+    oneshot
+    disabled
+
+on property:sys.imeilockstart=1
+    start imeilock
+
